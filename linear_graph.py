@@ -3,6 +3,8 @@ from matplotlib.animation import FuncAnimation
 import numpy as np
 import pandas as pd
 
+plt.style.use('dark_background')
+
 # Graph of sin(x)
 x = np.arange(0, 8 * np.pi, 0.01) # This is the independent variable, arange() returns an array from 0 to 8pi with a step of 0.01
 plt.plot(x, np.sin(x)) # np.sin(x) is the dependent variable, in esssence: f(x) = sin(x)
@@ -35,7 +37,7 @@ def update(frame): # Update function, how do I graph the function? What is x and
     return ln, # Always return ln,
 
 # Call animation function
-ani = FuncAnimation(fig, update, frames=np.linspace(-np.pi, np.pi, 100), init_func=init, blit=True)
+ani = FuncAnimation(fig, update, frames=np.linspace(-np.pi, np.pi, 100), init_func=init, blit=True, interval=30)
 plt.show() # Shows the graph
 
 # TODO: make a simple graph f(x) = x ** 2, with x \in (-2, 2), y \in (0, 4)
