@@ -1,0 +1,1 @@
+This is a small project going over the basics of graphing through the use of matplotlib and numpy
