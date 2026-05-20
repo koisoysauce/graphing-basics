@@ -6,3 +6,20 @@ y = x ** 2
 fig, ax = plt.subplots()
 ax.plot(x, y)
 plt.show()
+
+# Parameters for standard form: (x^2/a^2) - (y^2/b^2) = 1
+a, b = 2, 1
+x = np.linspace(-10, 10, 400)
+y = np.linspace(-10, 10, 400)
+X, Y = np.meshgrid(x, y)
+
+# Define the implicit equation
+F = (X**2 / a**2) - (Y**2 / b**2)
+
+# Plot the contour where the equation equals 1
+fig, ax = plt.subplots()
+ax.contour(X, Y, F, [1], colors='blue')
+ax.set_xbound(-10, 10)
+ax.set_ybound(-10, 10)
+plt.title("Hyperbola")
+plt.show()
