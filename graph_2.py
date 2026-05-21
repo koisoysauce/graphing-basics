@@ -38,7 +38,7 @@ ax.set_ybound(-10, 10)
 plt.title("Hyperbola")
 plt.show()
 
-x = np.arange(1, 1, 0.01)
-fig, ax = plt.subplots()
-ax.plot(x, x)
+x = np.array([-2, -1, 0, 1, 2])
+y = [2, 1, 0, 1, 2]
+plt.plot(x, y, "r-")
 plt.show()
