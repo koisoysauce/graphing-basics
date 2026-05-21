@@ -40,4 +40,25 @@ def update(frame): # Update function, how do I graph the function? What is x and
 ani = FuncAnimation(fig, update, frames=np.linspace(-np.pi, np.pi, 100), init_func=init, blit=True, interval=30)
 plt.show() # Shows the graph
 
-# TODO: make a simple graph f(x) = x ** 2, with x \in (-2, 2), y \in (0, 4)
+# Animated circle graph
+fig, ax = plt.subplots()
+x = []
+y = []
+ln, = ax.plot(x, y, 'b-')
+def init():
+    ax.set_xlim(-1.25,1.25)
+    ax.set_ylim(-1.25,1.25)
+    x.clear()
+    y.clear()
+    ln.set_data(x, y)
+    ax.set_aspect('equal')
+    return ln,
+def update(frame):
+    x.append(-np.cos(frame))
+    y.append(np.sin(frame))
+    ln.set_data(x, y)
+    return ln,
+
+ani = FuncAnimation(fig, func=update, frames=np.linspace(0, 2 * np.pi, 100), init_func=init, interval=30)
+ani = FuncAnimation(fig, func=update, frames=np.linspace(0, 2 * np.pi, 100), )
+plt.show()
