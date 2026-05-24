@@ -2,6 +2,30 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
+
+x = np.linspace(0, 2, 100)
+y = np.sin(x)
+
+fig, ax = plt.subplots()
+
+ax.set_xlim([min(x), max(x)])
+ax.set_ylim([-2, 2])
+
+animated_plot, = ax.plot([], [])
+
+def update_data(frame):
+    animated_plot.set_data(x[:frame], y[:frame])
+    return # this makes the graph update the frames rather than showing everything at once,
+
+
+animation = FuncAnimation(
+            fig=fig, 
+            func=update_data,
+            frames=len(x),
+            interval=20
+)
+
+plt.show()
 '''
 important functions to look through documentation:
 plt.set()
