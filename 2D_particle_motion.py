@@ -9,7 +9,7 @@ y = (t**2)
 fig, ax = plt.subplots()
 
 ax.set_xlim([min(t), max(t)])
-ax.set_ylim([-2, 2])
+ax.set_ylim([min(y), max(y)])
 
 animated_plot, = ax.plot([], [])
 
@@ -17,12 +17,15 @@ def update_data(frame):
     animated_plot.set_data(t[:frame], y[:frame])
     return # this makes the graph update the frames rather than showing everything at once,
 
+def init():
+    animated_plot.set_data([], [])
+    return
 
 animation = FuncAnimation(
             fig=fig, 
             func=update_data,
             frames=len(t),
-            interval=20
+            interval=30
 )
 
 plt.show()
