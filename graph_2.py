@@ -13,7 +13,7 @@ x = np.arange(-1, 1, 0.01)
 y = np.arcsin(x)
 fig, ax = plt.subplots()
 ax.plot(x, y)
-ax.set_ybound(-1, 1)
+ax.set_ybound(-np.pi/2, np.pi/2)
 plt.title("arcsin x")
 plt.show()
 
